@@ -48,7 +48,6 @@ export default function Loading() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    //TODO NEVYSHA: manage timer for loading
     setTimeout(() => {
       setLoading(false)
       setReady(true)

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import App from './App.tsx'
 import './index.css'
-import Loading from "./Loading/FullScreenLoading.tsx";
+import Loading from "@/componants/Loading/FullScreenLoading.tsx";
 
 import eventBus from "@/core/EventBus.ts";
 
