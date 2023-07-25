@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import Loading from "@/componants/Loading/FullScreenLoading.tsx";
+import { observeOnLinks } from '@/tools/tools'
 
 import eventBus from "@/core/EventBus.ts";
 

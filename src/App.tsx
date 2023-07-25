@@ -1,7 +1,12 @@
 import {Suspense, useEffect, useState} from "react";
 
 import './App.scss'
+//import '@/assets/cattpuccin/frappe.css' as assert and inject StyleSheet
+import { Layout } from '@/componants/Layout.tsx'
 import eventBus from "@/core/EventBus.ts";
+import {loadPalette} from "@/core/loadPalette.ts";
+
+loadPalette()
 
 function Loading() {
   return (
@@ -17,15 +22,15 @@ function App() {
 
   useEffect(() => {
     //TODO NEVYSHA: manage timer for loading
-
-    eventBus.onEver('gradio-ui-loaded', () => {
+    eventBus.onEver('cozy-nest-ui-ready', () => {
       setLoading(false)
       setReady(true)
     })
 
     return () => {
-      eventBus.off('gradio-ui-loaded')
+      eventBus.off('cozy-nest-ui-ready')
     }
+
   }, [])
 
   return (
@@ -33,7 +38,7 @@ function App() {
       {!ready ? <Loading /> :
         (
           <Suspense fallback={<Loading />}>
-            <h1>Vite + React</h1>
+            <Layout />
           </Suspense>
         )}
     </>

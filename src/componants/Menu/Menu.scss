@@ -1,0 +1,61 @@
+@import "@/Main";
+
+.Menu {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  background-color: $crust;
+
+  .CozyNest {
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    .nevysha-btn-menu {
+      fill: var(--ae-primary-color);
+      width: 20px;
+    }
+  }
+
+  div.tab-nav {
+    button {
+      color: $text;
+      border-radius: 0;
+    }
+
+    .selected {
+      background-color: $base;
+      border-top: 2px solid var(--ae-primary-color);
+    }
+  }
+
+  div[cn-css="tab-menu-button"] {
+
+    flex: 1;
+
+    button {
+      padding: 2px 5px;
+      margin: 0;
+    }
+
+    div[cn-css="tab-menu-button-children"] {
+      display: flex;
+      flex-direction: row;
+
+      button {
+        flex: 1;
+        font-size: var(--nevysha-text-md);
+        margin: 0;
+      }
+    }
+  }
+
+  .HiddenTabs {
+    flex: 1;
+    width: 100px;
+    font-size: var(--nevysha-text-md);
+  }
+}

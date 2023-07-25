@@ -1,6 +1,7 @@
 import './Loading.scss'
 import {Suspense, useEffect, useState} from "react";
 import Loader from "react-spinners/HashLoader";
+import eventBus from "@/core/EventBus.ts";
 
 function FullScreenLoading() {
 
@@ -48,10 +49,16 @@ export default function Loading() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+
+    eventBus.onEver('gradio-ui-loaded', () => {
       setLoading(false)
       setReady(true)
-    }, 10000)
+      eventBus.emit('cozy-nest-ui-ready')
+    })
+
+    return () => {
+      eventBus.off('gradio-ui-loaded')
+    }
   }, [])
 
   return (
@@ -59,7 +66,7 @@ export default function Loading() {
       {!ready ? <FullScreenLoading /> :
         (
           <Suspense fallback={<FullScreenLoading />}>
-            <h1>SN.Next</h1>
+            <div/>
           </Suspense>
         )}
     </>
